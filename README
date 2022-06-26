@@ -1,0 +1,37 @@
+# 323CB Druga Maria-Alexandra
+
+Proiectul realizat in limbajul C are ca scop implementarea unui router.
+
+Functii implementate:
+    ->create_route_table == Functia returneaza o variabila de tipul
+            route_table_entry pointer. In aceasta functie este creat
+            route table si returnat, salvandu-se si lungimea.
+            Mai intai tabela este creata si ulterior citita.
+
+    ->create_arp_table == Functia returneaza o variabila de tipul 
+    arp_entry pointer. Aici initializez
+                          arp-table pentru a il returna.
+    ->cmp_fct_sort == Functia returneaza o variabila de tip int si 
+                      este folosita pentru sortarea lui 
+                      rtable.
+    ->get_best_route == Functia returneaza o variabila de tipul 
+                        route_table_entry pointer. In atabela de routare
+                        urmatoarea ruta pe care trebuie trimis pachetul.
+    ->send_possible_packets == Din pachetele care nu au fost trimis deja 
+                            se incearca transmiterea lor pe cea mai
+                            apropiata cale. Daca nu se gaseste cea mai apropiata 
+                            cale se pun in asteptare.
+    ->arp_request == Se creeaza un request de tip arp. Mai intai obtin ether header,
+                    apoi mac-ul si creez header arp.
+                    In final apelez send_packet pentru trimiterea pachetului creat.
+    ->swap == Functie care face swap pentru doua variabile de tip int date ca parametru.
+    ->validate_checksum = Functia returneaza o variabila de tip bool. Aici se verifica 
+                        ca Ip header-ul a fost primit in mod corect.
+    ->MAIN == In functia main initializez urmatoarele variabile: route_table_length, 
+              arp_table_length, eth_hdr, arp_hdr,cache_arp, tmp_arp si creez route_table, 
+              arp_table.
+              In bucla do while obtin un pachet si verific daca a fost primit, apoi creez 
+              headerele ip si eth. In switch verific pe baza ethertype-ului daca primesc 
+              pachet ip sau arp. In functie de cazul in care ma aflu apelez functiile specifice.
+
+
